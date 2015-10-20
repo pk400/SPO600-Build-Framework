@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# m10k :: The 10,000 Monkeys Compiler Options Test Framework
+#
+# SPO600 Class @ Seneca, Fall 2015
+#
+
+# --- Initialize
+# --- Parse options file
+# --- Permute Options
+# --- Loop through the permutations
+# --- Build with selected options
+# --- Test for successful build
+# --- Loop through benchmark runs
+# --- Perform Benchmark
+# --- Record Results
+# --- Tidy and exit
+
+
