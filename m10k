@@ -1,0 +1,144 @@
+#!/bin/bash
+#
+# m10k :: The 10,000 Monkeys Compiler Options Test Framework
+#
+# SPO600 Class @ Seneca, Fall 2015
+#
+
+# --- Cleanup function
+
+function cleanup() {
+	rm "$TEMPDIR" "$TEMPPARSE" "$TEMPPERMUTE" "$TEMPRESULT" 2>/dev/null
+	exit 0
+}
+
+# Execute cleanup on specific signals
+trap cleanup 0 1 2 3 4 5 6 7 8 15 30
+
+# --- Initialize
+
+# Get the pathname of the input tarball
+TARBALL="$(readlink -f "$1")"
+if [ ! -f "$TARBALL" ]
+then
+	echo "$0: tarball '$TARBALL' not found; supply valid tarball name as arg1." >&2
+	exit 1
+fi
+
+# Create a temporary directory to explode the tarball
+TEMPDIR=$(mktemp -d)
+mkdir -p $TEMPDIR
+cd $TEMPDIR
+
+# Explode the tarball
+tar xf "$TARBALL"
+if [ "$?" -ne 0 ]
+then
+	echo "$0: tarball expansion failed." >&2
+	exit 2
+fi
+
+# Setup directory variables
+M10KDIR="$HOME/.m10k"
+if [ ! -d "$M10KDIR" ]
+then
+	M10KDIR="/usr/local/m10k"
+	if [ ! -d "$M10KDIR" ]
+	then
+		echo "$0: ~/.m10k and /usr/local/m10k directories missing." >&2
+		exit 3
+	fi
+fi
+
+export M10KDIR
+
+# Create tempfile names
+TEMPPARSE=$(mktemp)
+TEMPPERMUTE=$(mktemp)
+TEMPRESULT=$(mktemp)
+
+# Set number of benchmark runs per build
+BENCHMARKS=4
+
+# --- Parse options file
+
+${M10KDIR}/m10k_parse >$TEMPPARSE
+if [ $? != 0 ]
+then
+	echo "$0: m10k_parse failed." >&2
+	exit 4
+fi
+
+# --- Permute Options
+
+${M10KDIR}/m10k_permute >$TEMPPERMUTE <$TEMPPARSE
+if [ $? != 0 ]
+then
+	echo "$0: m10k_permute failed." >&2
+	exit 5
+fi
+
+# --- Loop through the permutations
+
+cat "$TEMPPERMUTE"|
+while read PERMUTATION
+do
+
+# --- Build with selected options
+
+echo "=== Building"
+
+${M10KDIR}/m10k_build <<<$PERMUTATION
+if [ $? != 0 ]
+then
+	echo "$0: m10k_build failed." >&2
+	exit 6
+fi
+
+# --- Test for successful build
+
+echo "=== Testing build"
+
+${M10KDIR}/m10k_test
+if [ $? != 0 ]
+then
+	echo "$0: m10k_build failed." >&2
+	exit 6
+else
+# --- Loop through benchmark runs
+
+for ((I=0; I<$BENCHMARKS; I++))
+do
+
+# --- Perform Benchmark
+
+echo "=== Starting benchmark run $I"
+
+echo "$TEMPRESULTS"|${M10KDIR}/m10k_benchmark
+if [ $? != 0 ]
+then
+	echo "$0: m10k_benchmark failed." >&2
+fi
+
+done # loop through benchmark runs
+
+echo "=== Done benchmark runs"
+
+fi # m10k build success/run benchmarks
+
+done # loop through permutations
+
+# --- Record Results
+
+${M10KDIR}/m10k_cogitate
+if [ $? != 0 ]
+then
+	echo "$0: m10k_cogitate failed." >&2
+	exit 7
+fi
+
+# --- Tidy and exit
+
+cleanup
+exit 0
+
