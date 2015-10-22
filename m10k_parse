@@ -1,7 +1,7 @@
 # Parse a csv file
 import csv
 import sys
-filename = "options.csv"
+filename = "monkeys10k.config"
 
 try:
 	# Open file
