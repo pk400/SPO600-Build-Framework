@@ -1,6 +1,6 @@
 # SPO600-Build-Framework
 
-# Instructions for Submitting a Pull Request
+## Instructions for Submitting a Pull Request
 0. Create a Github account.
 0. Navigate to the project repo by the link above.
 0. In the top right of the page make sure that you are "Watching" the repo: https://i.gyazo.com/f887e6199af0f73453556ca0e96dc2bb.png
