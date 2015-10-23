@@ -1,6 +1,7 @@
+# SPO600
 # Parse a csv file
-import csv
-import sys
+
+import csv, sys
 filename = "monkeys10k.config"
 
 try:
@@ -10,12 +11,12 @@ except IOError:
 	print "Can't open", filename
 	sys.exit(1)
 else:
-	# Read file, delimited by '|'
-	reader = csv.reader(f, delimiter="|")
+	# Read file
+	reader = csv.reader(f)
 	
 	# Output
-	for row in reader:
-		print row
+	for p in reader:
+		print '|'.join(p).rsplit(':', 1)[1]
 
 	f.close()
 	sys.exit(0)
