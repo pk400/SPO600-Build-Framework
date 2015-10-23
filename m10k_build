@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "m10k_build"
-ls -l m10k_build_plugin
+ls -l m10k_build_plugin 2> /dev/null
 if [ "$?" == 2 ]
 then
     echo "$0: File not found"
