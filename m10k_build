@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "m10k_build"
+ls -l m10k_build_plugin
+if [ "$?" == 2 ]
+then
+    echo "$0: File not found"
+    exit 2
+fi
+./m10k_build_plugin <<< echo $*
+exit 0
