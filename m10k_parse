@@ -1,5 +1,6 @@
+#!/usr/bin/python
+# Parse the config file
 # SPO600
-# Parse a csv file
 
 import csv, sys
 filename = "monkeys10k.config"

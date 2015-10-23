@@ -62,7 +62,7 @@ BENCHMARKS=4
 
 # --- Parse options file
 
-python ${M10KDIR}/m10k_parse.py >$TEMPPARSE
+${M10KDIR}/m10k_parse >$TEMPPARSE
 if [ $? != 0 ]
 then
 	echo "$0: m10k_parse failed." >&2
