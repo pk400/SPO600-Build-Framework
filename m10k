@@ -105,6 +105,7 @@ then
 	echo "$0: m10k_build failed." >&2
 	exit 6
 else
+
 # --- Loop through benchmark runs
 
 for ((I=0; I<$BENCHMARKS; I++))
