@@ -2,12 +2,12 @@
 # Parse the config file
 # SPO600
 
-import csv, sys
+import csv, sys, os
 filename = "monkeys10k.config"
 
 try:
 	# Open file
-	f = open(filename, 'r')
+	f = open(os.path.join(sys.path[0], filename), 'r')
 except IOError:
 	print "Can't open", filename
 	sys.exit(1)
