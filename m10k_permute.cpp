@@ -82,19 +82,39 @@ int main (int argc, char *argv[])
       optionGroups.push_back(options);
    }
    */
+   int ret = 0;
+   bool isContinued = true;
    vector<vector<string>> optionGroups;
-   while (true)
+   string debugStr = "";
+   try
    {
-      char buff[2048];
-      string stdIn;
-      cin.getline(buff, 2048);
-      stdIn = buff;
-      vector<string> options;
-      Split(options, stdIn, " | ");      
-      optionGroups.push_back(options);
-      vector<unsigned int> pivots;
-      for (unsigned int i = 0; i < optionGroups.size(); i++) pivots.push_back(0);
-      PrintOption(optionGroups, 0, pivots);
+      while (isContinued)
+      {
+         char buff[2048];
+         string stdIn;
+         cin.getline(buff, 2048);
+         stdIn = buff;
+         debugStr += stdIn + "\n";
+         if (stdIn.length() > 0)
+         {
+            vector<string> options;
+            Split(options, stdIn, "|");
+            optionGroups.push_back(options);
+            vector<unsigned int> pivots;
+            for (unsigned int i = 0; i < optionGroups.size(); i++) pivots.push_back(0);
+            PrintOption(optionGroups, 0, pivots);
+         }
+         else
+         {
+            isContinued = false;
+         }
+      }
    }
-   return 0;
+   catch (const string& errMsg)
+   {
+      cout << debugStr << endl;
+      cerr << errMsg << endl;
+   }
+
+   return ret;
  }
