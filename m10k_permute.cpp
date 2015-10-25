@@ -4,7 +4,9 @@
 
 using namespace std;
 
-
+/*
+* This is a recursive function to print permuted options.
+*/
 void PrintOption(vector<vector<string>>& optionGroups, unsigned int idx, vector<unsigned int>& pivots)
 {
    vector<string> optionGroup = optionGroups[idx];
@@ -62,26 +64,8 @@ void Split(vector<string>& lst, string input, const string separators, bool remo
 }
 
 
-/*
- * This is a sample code for Permutation module.
- */
 int main (int argc, char *argv[]) 
 {
-   /*
-   // this dummy string array is to pretend STDIN string
-   vector<string> dummyInputStrList = { "-1 | -2 | -3",
-                                        "-4 | -5 | -6",
-                                        "-7 | -8"};
-   vector<vector<string>> optionGroups;
-
-   // this loop is for testing
-   for each (string stdIn in dummyInputStrList)
-   {
-      vector<string> options;
-      Split(options, stdIn, " | ");
-      optionGroups.push_back(options);
-   }
-   */
    int ret = 0;
    bool isContinued = true;
    vector<vector<string>> optionGroups;
@@ -100,15 +84,15 @@ int main (int argc, char *argv[])
             vector<string> options;
             Split(options, stdIn, "|");
             optionGroups.push_back(options);
-            vector<unsigned int> pivots;
-            for (unsigned int i = 0; i < optionGroups.size(); i++) pivots.push_back(0);
-            PrintOption(optionGroups, 0, pivots);
          }
          else
          {
             isContinued = false;
          }
       }
+      vector<unsigned int> pivots;
+      for (unsigned int i = 0; i < optionGroups.size(); i++) pivots.push_back(0);
+      PrintOption(optionGroups, 0, pivots);
    }
    catch (const string& errMsg)
    {
