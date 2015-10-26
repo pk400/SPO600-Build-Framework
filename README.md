@@ -1,5 +1,14 @@
 # SPO600-Build-Framework
 
+## Current Status
+- [x] **Config**
+- [x] **Parser**
+- [x] **Permutation**
+- [x] **Build**
+- [ ] **Testing**
+- [ ] **Benchmark**
+- [ ] **Analysis**
+
 ## Who's Doing What 
 
 The driver for each piece is in **bold**. Please don't be confined by this list -- contribute to any section as you see fit.
