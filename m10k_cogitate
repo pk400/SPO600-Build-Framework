@@ -1,0 +1,35 @@
+﻿class DataEntry:
+    permuteId = 0
+    flags = ''
+    buildExit = 0
+    buildWallTime = 0
+    buildUserSystemTime = 0
+    buildSize = 0
+    testExit = 0
+    benchmarks = []
+
+# adjust the file name if it's different
+resultFile = open('analysis.txt');
+entry = None
+entries = []
+line = resultFile.readline()
+packageName = line
+line = resultFile.readline()
+while line:
+    tokens = line.split('|')
+
+    if line[0] == '#':
+        if entry != None:
+            # new entry, save the current one
+            entries.append(entry)
+
+        entry = DataEntry()
+        entry.permuteId = tokens[0][1:]
+        entry.flags = tokens[1]
+        
+# add last entry
+if entry != None:
+    entries.append(entry)
+
+for e in entries:
+    print(e.permuteId + ' ' + e.flags)
