@@ -4,7 +4,9 @@
 
 using namespace std;
 
-
+/*
+* This is a recursive function to print permuted options.
+*/
 void PrintOption(vector<vector<string>>& optionGroups, unsigned int idx, vector<unsigned int>& pivots)
 {
    vector<string> optionGroup = optionGroups[idx];
@@ -62,39 +64,41 @@ void Split(vector<string>& lst, string input, const string separators, bool remo
 }
 
 
-/*
- * This is a sample code for Permutation module.
- */
 int main (int argc, char *argv[]) 
 {
-   /*
-   // this dummy string array is to pretend STDIN string
-   vector<string> dummyInputStrList = { "-1 | -2 | -3",
-                                        "-4 | -5 | -6",
-                                        "-7 | -8"};
+   int ret = 0;
+   bool isContinued = true;
    vector<vector<string>> optionGroups;
-
-   // this loop is for testing
-   for each (string stdIn in dummyInputStrList)
+   string debugStr = "";
+   try
    {
-      vector<string> options;
-      Split(options, stdIn, " | ");
-      optionGroups.push_back(options);
-   }
-   */
-   vector<vector<string>> optionGroups;
-   while (true)
-   {
-      char buff[2048];
-      string stdIn;
-      cin.getline(buff, 2048);
-      stdIn = buff;
-      vector<string> options;
-      Split(options, stdIn, " | ");      
-      optionGroups.push_back(options);
+      while (isContinued)
+      {
+         char buff[2048];
+         string stdIn;
+         cin.getline(buff, 2048);
+         stdIn = buff;
+         debugStr += stdIn + "\n";
+         if (stdIn.length() > 0)
+         {
+            vector<string> options;
+            Split(options, stdIn, "|");
+            optionGroups.push_back(options);
+         }
+         else
+         {
+            isContinued = false;
+         }
+      }
       vector<unsigned int> pivots;
       for (unsigned int i = 0; i < optionGroups.size(); i++) pivots.push_back(0);
       PrintOption(optionGroups, 0, pivots);
    }
-   return 0;
+   catch (const string& errMsg)
+   {
+      cout << debugStr << endl;
+      cerr << errMsg << endl;
+   }
+
+   return ret;
  }
