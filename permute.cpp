@@ -4,9 +4,9 @@
 using namespace std;
 
 class CompilerOptions {
-	vector<vector<string>> group;
+    vector<vector<string>> group;
 	public:
-		CompilerOptions() {}
+	    CompilerOptions() {}
 		void add(vector<string> v);
 		void permutation();
 		void permuteOptions(int groupIdx);
@@ -15,7 +15,7 @@ class CompilerOptions {
 };
 
 void CompilerOptions::add(vector<string> v) {
-	group.push_back(v);
+    group.push_back(v);
 }
 
 void CompilerOptions::permutation() {
