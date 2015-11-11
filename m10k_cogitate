@@ -1,35 +1,58 @@
-﻿class DataEntry:
-    permuteId = 0
-    flags = ''
-    buildExit = 0
-    buildWallTime = 0
-    buildUserSystemTime = 0
-    buildSize = 0
-    testExit = 0
-    benchmarks = []
+﻿class Permutation:
+	def __init__(self):
+		self.id = 0
+		self.flags = ''
+		self.buildExit = 0
+		self.buildWallTime = 0
+		self.buildUserSystemTime = 0
+		self.buildSize = 0
+		self.benchmarks = []
+
+class Benchmark:
+	def __init__(self):
+		self.id = 0
+		self.speedScore = 0
+		self.memoryScore = 0
 
 # adjust the file name if it's different
-resultFile = open('analysis.txt');
-entry = None
-entries = []
+resultFile = open('analysis.txt')
+
+# package name
+packageName = resultFile.readline()
+
+permutations = []
 line = resultFile.readline()
-packageName = line
-line = resultFile.readline()
-while line:
-    tokens = line.split('|')
+while line != '' and line[0] == '#':
+	tokens = line.split('|')
 
-    if line[0] == '#':
-        if entry != None:
-            # new entry, save the current one
-            entries.append(entry)
+	# new permutation
+	permutation = Permutation()
+	permutation.id = tokens[0][1:]
+	permutation.flags = tokens[1]
 
-        entry = DataEntry()
-        entry.permuteId = tokens[0][1:]
-        entry.flags = tokens[1]
-        
-# add last entry
-if entry != None:
-    entries.append(entry)
+	# build stats
+	tokens = resultFile.readline().split('|')
+	permutation.buildExit = tokens[0]
+	permutation.buildWallTime = tokens[1]
+	permutation.buildUserSystemTime = tokens[2]
+	permutation.buildSize = tokens[3]
 
-for e in entries:
-    print(e.permuteId + ' ' + e.flags)
+	# test stats
+	permutation.testExit = resultFile.readline()
+
+	#benchmark runs
+	line = resultFile.readline()
+	while line != '' and line[0] == '$':
+		tokens = line.split('|')
+
+		benchmark = Benchmark()
+		benchmark.id = tokens[0][1:]
+		benchmark.speedScore = tokens[1]
+		benchmark.memoryScore = tokens[2]
+
+		permutation.benchmarks.append(benchmark)
+		line = resultFile.readline()
+
+	permutations.append(permutation)
+
+print('foo')
