@@ -1,11 +1,15 @@
-﻿class Permutation:
+﻿import sqlite3
+import os.path
+
+class Permutation:
 	def __init__(self):
 		self.id = 0
 		self.flags = ''
 		self.buildExit = 0
 		self.buildWallTime = 0
 		self.buildUserSystemTime = 0
-		self.buildSize = 0
+		self.buildSize = 0,
+		self.testExit = 0
 		self.benchmarks = []
 
 class Benchmark:
@@ -28,7 +32,7 @@ while line != '' and line[0] == '#':
 	# new permutation
 	permutation = Permutation()
 	permutation.id = tokens[0][1:]
-	permutation.flags = tokens[1]
+	permutation.flags = tokens[1].replace('\n', '')
 
 	# build stats
 	tokens = resultFile.readline().split('|')
@@ -55,4 +59,30 @@ while line != '' and line[0] == '#':
 
 	permutations.append(permutation)
 
-print('foo')
+# store results
+dbName = 'results.db'
+dbExists = os.path.exists(dbName)
+connection = sqlite3.connect(dbName)
+
+if not dbExists:
+	connection.execute(
+		'create table permutations (uniqueId integer primary key autoincrement, givenId integer, flags ' + 
+		'text, buildExit integer, buildWallTime integer, buildUserSystemTime integer, buildSize integer, testExit integer)')
+	connection.execute(
+		'create table benchmarks (uniqueId integer primary key autoincrement,' + 
+		' givenId integer, speedScore integer, memoryScore integer)')
+
+for per in permutations:
+	connection.execute(
+		'insert into permutations '+
+		'(givenId, flags, buildExit, buildWallTime, buildUserSystemTime, buildSize, testExit) values (?, ?, ?, ?, ?, ?, ?)',
+		(per.id, per.flags, per.buildExit, per.buildWallTime, per.buildUserSystemTime, per.buildSize, per.testExit))
+
+	cursor = connection.cursor()
+	connection.execute('select last_insert_rowid()')
+	lastId = cursor.fetchone()
+
+	#for bench in per.benchmarks:
+	#	connection.execute('insert into benchmarks values (?,?,?)')
+connection.commit()
+connection.close()
