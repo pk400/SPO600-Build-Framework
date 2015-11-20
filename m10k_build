@@ -8,10 +8,10 @@ read PERMUTATION
 # Set FLAGS to the options from permutation
 export CFLAGS="$PERMUTATION"
 
-./configure
+./configure --prefix=$HOME/.m10k/build
 
 make
-sudo make install
+make install
 
 #echo "m10k_build"
 #ls -l m10k_build_plugin 2> /dev/null

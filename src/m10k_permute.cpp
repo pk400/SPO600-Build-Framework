@@ -59,6 +59,10 @@ void Split(vector<string>& lst, string input, const string separators, bool remo
          lst.push_back(input);
          break;
       }
+
+      if(input.size() < index) {
+        break;
+      }
       input = input.substr(index + separators.size());
    }
 }
