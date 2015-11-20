@@ -1,4 +1,5 @@
-﻿import sqlite3
+#!/usr/bin/env python
+import sqlite3
 import os.path
 
 class Permutation:
