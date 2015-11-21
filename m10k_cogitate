@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import sqlite3
 import os.path
+import sys
 
 class Permutation:
 	def __init__(self):
@@ -18,6 +19,13 @@ class Benchmark:
 		self.id = 0
 		self.speedScore = 0
 		self.memoryScore = 0
+
+comma = ', '
+def createTable(tableName, columns):
+	return 'create table {0} ({1})'.format(tableName, comma.join([column[0] + ' ' + column[1] for column in columns]))
+
+def insertInto(tableName, columns):
+	return 'insert into {0} ({1}) values ({2})'.format(tableName, comma.join([column[0] for column in columns[1:]]), comma.join(['?' for column in columns[1:]]))
 
 # adjust the file name if it's different
 resultFile = open('analysis.txt')
@@ -65,25 +73,53 @@ dbName = 'results.db'
 dbExists = os.path.exists(dbName)
 connection = sqlite3.connect(dbName)
 
+primaryKey = ' primary key autoincrement'
+typeInteger = 'integer'
+typeText = 'text'
+tablePermutations = 'permutations'
+tableBenchmarks = 'benchmarks'
+
+permutationColumns = (
+	('uniqueId', typeInteger + primaryKey),
+	('givenId', typeInteger),
+	('flags', typeText),
+	('buildExit', typeInteger),
+	('buildWallTime', typeInteger),
+	('buildUserSystemTime', typeInteger),
+	('buildSize', typeInteger),
+	('testExit', typeInteger))
+
+benchmarkColumns = (
+	('uniqueId', typeInteger + primaryKey),
+	('permutationUniqueId', typeText),
+	('givenId', typeInteger),
+	('speedScore', typeInteger),
+	('memoryScore', typeInteger))
+
 if not dbExists:
-	connection.execute(
-		'create table permutations (uniqueId integer primary key autoincrement, givenId integer, flags ' + 
-		'text, buildExit integer, buildWallTime integer, buildUserSystemTime integer, buildSize integer, testExit integer)')
-	connection.execute(
-		'create table benchmarks (uniqueId integer primary key autoincrement,' + 
-		' givenId integer, speedScore integer, memoryScore integer)')
+	connection.execute(createTable(tablePermutations, permutationColumns))
+	connection.execute(createTable(tableBenchmarks, benchmarkColumns))
 
 for per in permutations:
+	cursor = connection.cursor()
 	connection.execute(
-		'insert into permutations '+
-		'(givenId, flags, buildExit, buildWallTime, buildUserSystemTime, buildSize, testExit) values (?, ?, ?, ?, ?, ?, ?)',
+		insertInto(tablePermutations, permutationColumns),
 		(per.id, per.flags, per.buildExit, per.buildWallTime, per.buildUserSystemTime, per.buildSize, per.testExit))
 
-	cursor = connection.cursor()
-	connection.execute('select last_insert_rowid()')
-	lastId = cursor.fetchone()
+	lastId = cursor.lastrowid
 
-	#for bench in per.benchmarks:
-	#	connection.execute('insert into benchmarks values (?,?,?)')
+	for bench in per.benchmarks:
+		connection.execute(
+			insertInto(tableBenchmarks, benchmarkColumns),
+			(bench.id, lastId, bench.speedScore, bench.memoryScore))
+
 connection.commit()
+
+print('Permutations:\n' + comma.join([column[0] for column in permutationColumns]))
+for row in connection.execute('select * from ' + tablePermutations):
+	print(row)
+	for benchRow in connection.execute('select * from ' + tableBenchmarks + ' where ' + benchmarkColumns[1][0] + ' = ' + str(row[0])):
+		print('\t', end = '')
+		print(benchRow)
+
 connection.close()
