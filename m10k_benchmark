@@ -1,0 +1,25 @@
+#!/bin/bash
+# Coded by Jayme Laso-Barros
+# This script will check if m10k_benchmark_plugin exists.
+# If it does, then the plugin is run.
+
+PLUGIN="m10k_benchmark_plugin"
+
+echo "Running m10k_benchmark script..."
+
+# Look for the plugin in the project root directory.
+echo "Checking if the benchmark plugin exists"
+ls -l $PLUGIN 2> /dev/null
+
+# Display a message if the plugin doesn't exist.
+if [ "$?" == 2 ]
+then
+	echo "$PLUGIN not found"
+	exit 2
+fi
+
+# Run the plugin if it exists.
+read BENCHMARK
+./$PLUGIN <<< echo "$0: $BENCHMARK"
+
+exit 0
