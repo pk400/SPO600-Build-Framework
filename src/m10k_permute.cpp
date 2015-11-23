@@ -7,7 +7,7 @@ using namespace std;
 /*
 * This is a recursive function to print permuted options.
 */
-void PrintOption(vector<vector<string>>& optionGroups, unsigned int idx, vector<unsigned int>& pivots)
+void PrintOption(vector<vector<string> >& optionGroups, unsigned int idx, vector<unsigned int>& pivots)
 {
    vector<string> optionGroup = optionGroups[idx];
    if (pivots[idx] < optionGroup.size())
@@ -72,7 +72,7 @@ int main (int argc, char *argv[])
 {
    int ret = 0;
    bool isContinued = true;
-   vector<vector<string>> optionGroups;
+   vector<vector<string> > optionGroups;
    string debugStr = "";
    try
    {
