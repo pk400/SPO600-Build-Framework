@@ -16,6 +16,7 @@ else:
 	
 	# Output
 	for line in reader:
+		# Trim group name
 		line[0] = line[0].rsplit(':', 1)[-1]
 	
 		for option in line:
