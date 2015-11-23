@@ -1,9 +1,8 @@
 #!/usr/bin/python
 # Parse the config file
-# SPO600
 
 import csv, sys, os
-filename = "monkeys10k.config"
+filename = "monkeys10k-se.config"
 
 try:
 	# Open file
@@ -13,11 +12,18 @@ except IOError:
 	sys.exit(1)
 else:
 	# Read file
-	reader = csv.reader(f)
+	reader = csv.reader(f, delimiter=' ')
 	
 	# Output
-	for p in reader:
-		print '|'.join(p).rsplit(':', 1)[1]
+	for line in reader:
+		for option in line:
+			print option.rsplit(':', 1)[-1],
+		sys.stdout.write('|')
 
+		for option in line:
+			print '-fno-' + option.rsplit(':', 1)[-1][2:],
+		print
+	print
+ 
 	f.close()
 	sys.exit(0)
