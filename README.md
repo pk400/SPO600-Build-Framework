@@ -9,7 +9,7 @@
 - [ ] **Test plugin**
 - [x] **Benchmark script**
 - [ ] **Benchmark plugin**
-- [ ] **Analysis**
+- [x] **Analysis**
 
 ## Who's Doing What 
 
