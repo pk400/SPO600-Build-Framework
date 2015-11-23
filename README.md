@@ -5,8 +5,10 @@
 - [x] **Parser**
 - [x] **Permutation**
 - [x] **Build**
-- [ ] **Testing**
-- [ ] **Benchmark**
+- [x] **Test script**
+- [ ] **Test plugin**
+- [x] **Benchmark script**
+- [ ] **Benchmark plugin**
 - [ ] **Analysis**
 
 ## Who's Doing What 
