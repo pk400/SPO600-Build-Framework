@@ -22,12 +22,11 @@ else:
 		for option in line:
 			print option,
 
+		# Output delimiter
 		sys.stdout.write('|')
 
 		for option in line:
-			p = option[:5]
-
-			if p == '-fno-':
+			if option[:5] == '-fno-':
 				print '-f' +  option[5:],
 			else:	
 				print '-fno-' + option[2:],
