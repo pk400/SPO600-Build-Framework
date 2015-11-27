@@ -1,6 +1,0 @@
-#!/bin/bash
-
-echo "TESTING"
-cd gzip*
-make check
-

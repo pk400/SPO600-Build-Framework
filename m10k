@@ -7,6 +7,10 @@
 
 # --- Cleanup function
 
+function debug() {
+	echo "==== $(date) == $1" >&2
+}
+
 function cleanup() {
 	rm "$TEMPDIR" "$TEMPPARSE" "$TEMPPERMUTE" "$TEMPRESULT" 2>/dev/null
 	exit 0
@@ -31,6 +35,7 @@ mkdir -p $TEMPDIR
 cd $TEMPDIR
 
 # Explode the tarball
+debug "Exploding tarball"
 tar xf "$TARBALL"
 if [ "$?" -ne 0 ]
 then
@@ -62,6 +67,7 @@ BENCHMARKS=4
 
 # --- Parse options file
 
+debug "Parsing options file"
 ${M10KDIR}/m10k_parse >$TEMPPARSE
 if [ $? != 0 ]
 then
@@ -71,6 +77,7 @@ fi
 
 # --- Permute Options
 
+debug "Permuting Options"
 ${M10KDIR}/m10k_permute >$TEMPPERMUTE <$TEMPPARSE
 if [ $? != 0 ]
 then
@@ -80,14 +87,18 @@ fi
 
 # --- Loop through the permutations
 
+PERM=0
+
 cat "$TEMPPERMUTE"|
 while read PERMUTATION
 do
 
+debug "Processing permutation $((++PERM))"
 # --- Build with selected options
 
 echo "=== Building"
 
+debug "Building"
 ${M10KDIR}/m10k_build <<<$PERMUTATION
 if [ $? != 0 ]
 then
@@ -97,23 +108,25 @@ fi
 
 # --- Test for successful build
 
-echo "=== Testing build"
+debug "Testing build"
 
 ${M10KDIR}/m10k_test
 if [ $? != 0 ]
 then
-	echo "$0: m10k_build failed." >&2
+	echo "$0: m10k_test failed." >&2
 	exit 6
 else
 
 # --- Loop through benchmark runs
 
+debug "Starting benchmarking"
+
 for ((I=0; I<$BENCHMARKS; I++))
 do
 
-# --- Perform Benchmark
+debug "Benchmark run $I"
 
-echo "=== Starting benchmark run $I"
+# --- Perform Benchmark
 
 echo "$TEMPRESULTS"|${M10KDIR}/m10k_benchmark
 if [ $? != 0 ]
@@ -122,8 +135,6 @@ then
 fi
 
 done # loop through benchmark runs
-
-echo "=== Done benchmark runs"
 
 fi # m10k build success/run benchmarks
 
@@ -139,6 +150,8 @@ then
 fi
 
 # --- Tidy and exit
+
+debug "Finished"
 
 cleanup
 exit 0

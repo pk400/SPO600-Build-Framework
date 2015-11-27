@@ -1,26 +1,22 @@
 #!/bin/bash
 
-cd *
-
 #read location of the start-up script
 
 read LOC
 
-echo "Checking if the testing plugin exists"
-
-ls -l m10k_test_plugin 2 > /dev/null
+echo "Checking if the testing plugin exists" >&2
 
 #look for test plugin
-if [ "$?" == 2 ]
-	then
-		echo "$0" plugin not found"
-		exit 2
-	fi
+if [ ! -x "./m10k_test_plugin" ]
+then
+	echo "$0: test plugin '$(pwd)/m10k_test_plugin' not found" >&2
+	exit 2
+fi
 
 
 #if plugin exists then run it
 #pass location of startup script as STDIN
 
+echo "Running test plugin" >&2
 ./m10k_test_plugin <<< $LOC
 
-exit 0

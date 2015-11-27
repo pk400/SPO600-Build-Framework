@@ -1,0 +1,38 @@
+#!/usr/bin/python
+# Parse the config file
+
+import csv, sys, os
+filename = "monkeys10k.config"
+
+try:
+	# Open file
+	f = open(os.path.join(sys.path[0], filename), 'r')
+except IOError:
+	print "Can't open", filename
+	sys.exit(1)
+else:
+	# Read file
+	reader = csv.reader(f)
+	
+	# Output
+	for line in reader:
+		# Trim group name
+		line[0] = line[0].rsplit(':', 1)[-1]
+	
+		for option in line:
+			print option,
+
+		# Output delimiter
+		sys.stdout.write('|')
+
+		for option in line:
+			print option,
+#			if option[:5] == '-fno-':
+#				print '-f' +  option[5:],
+#			else:	
+#				print '-fno-' + option[2:],
+#		print
+	print
+ 
+	f.close()
+	sys.exit(0)
