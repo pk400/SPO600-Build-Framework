@@ -1,0 +1,137 @@
+#!/usr/bin/env python
+import sqlite3
+import os.path
+import sys
+
+class Permutation:
+	def __init__(self):
+		self.id = 0
+		self.flags = ''
+		self.buildExit = 0
+		self.buildWallTime = 0
+		self.buildUserSystemTime = 0
+		self.buildSize = 0,
+		self.testExit = 0
+		self.benchmarks = []
+
+class Benchmark:
+	def __init__(self):
+		self.id = 0
+		self.speedScore = 0
+		self.memoryScore = 0
+
+comma = ', '
+def createTable(tableName, columns):
+	"""Returns SQL for creating a table with tableName and columns defined in the second parameter, 
+	which is a list of tuples of two strings with column name and type."""
+	return 'create table {0} ({1})'.format(tableName, comma.join([column[0] + ' ' + column[1] for column in columns]))
+
+def insertInto(tableName, columns):
+	"""Returns SQL for inserting into a table with tableName and columns defined in the second parameter, 
+	which is a list of tuples of two strings with column name and type. First element of columns is omitted, don't need to insert into autoincrement fields."""
+	return 'insert into {0} ({1}) values ({2})'.format(tableName, comma.join([column[0] for column in columns[1:]]), comma.join(['?'] * (len(columns) - 1)))
+
+resultFile = open('analysis.txt')
+
+# package name
+packageName = resultFile.readline()
+
+permutations = []
+line = resultFile.readline()
+while line != '' and line[0] == '#':
+	tokens = line.split('|')
+
+	# new permutation
+	permutation = Permutation()
+	permutation.id = tokens[0][1:]
+	permutation.flags = tokens[1].replace('\n', '')
+
+	# build stats
+	tokens = resultFile.readline().split('|')
+	permutation.buildExit = tokens[0]
+	permutation.buildWallTime = tokens[1]
+	permutation.buildUserSystemTime = tokens[2]
+	permutation.buildSize = tokens[3]
+
+	# test stats
+	permutation.testExit = resultFile.readline()
+
+	#benchmark runs
+	line = resultFile.readline()
+	while line != '' and line[0] == '$':
+		tokens = line.split('|')
+
+		benchmark = Benchmark()
+		benchmark.id = tokens[0][1:]
+		benchmark.speedScore = tokens[1]
+		benchmark.memoryScore = tokens[2]
+
+		permutation.benchmarks.append(benchmark)
+		line = resultFile.readline()
+
+	permutations.append(permutation)
+
+# check if data file already exist, we don't need to create the tables if it does
+dbName = 'results.db'
+dbExists = os.path.exists(dbName)
+connection = sqlite3.connect(dbName)
+
+# variables below define the structure of the database tables
+primaryKey = ' primary key autoincrement'
+typeInteger = 'integer'
+typeText = 'text'
+tablePermutations = 'permutations'
+tableBenchmarks = 'benchmarks'
+
+permutationColumns = [
+	('uniqueId', typeInteger + primaryKey), # auto generated ID
+	('givenId', typeInteger), # ID taken from the data
+	('flags', typeText),
+	('buildExit', typeInteger),
+	('buildWallTime', typeInteger),
+	('buildUserSystemTime', typeInteger),
+	('buildSize', typeInteger),
+	('testExit', typeInteger)]
+
+benchmarkColumns = [
+	('uniqueId', typeInteger + primaryKey), # auto generated ID
+	('permutationUniqueId', typeInteger), # auto generate ID of the parent permutation
+	('givenId', typeInteger), # ID taken from the data
+	('speedScore', typeInteger),
+	('memoryScore', typeInteger)]
+
+if not dbExists:
+	# create tables if we're working with a fresh database
+	connection.execute(createTable(tablePermutations, permutationColumns))
+	connection.execute(createTable(tableBenchmarks, benchmarkColumns))
+
+for per in permutations:
+	# insert a permutation record, we'll use its auto generated ID to associated the benchmark runs with it
+	cursor = connection.execute(
+		insertInto(tablePermutations, permutationColumns),
+		(per.id, per.flags, per.buildExit, per.buildWallTime, per.buildUserSystemTime, per.buildSize, per.testExit))
+
+	lastId = cursor.lastrowid
+
+	for bench in per.benchmarks:
+		connection.execute(
+			insertInto(tableBenchmarks, benchmarkColumns),
+			(lastId, bench.id, bench.speedScore, bench.memoryScore))
+
+connection.commit()
+
+# show column labels
+print('Permutation columns:\n' + comma.join([column[0] for column in permutationColumns]))
+print('Benchmark columns:\n' + comma.join([column[0] for column in benchmarkColumns]))
+print()
+
+# dump the database
+for row in connection.execute('select * from ' + tablePermutations):
+	print(row)
+	for benchRow in connection.execute('select * from ' + tableBenchmarks + ' where ' + benchmarkColumns[1][0] + ' = ' + str(row[0])):
+		print('\t', end = '')
+		print(benchRow)
+
+	print()
+
+connection.close()
