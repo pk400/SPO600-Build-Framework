@@ -2,12 +2,16 @@
 #m10k_build_plugin test file
 
 # Goes into project directorry
-cd *
+cd gzip-[0-9]*
+
+# Read configuration to be tested
 read PERMUTATION
 
 # Set FLAGS to the options from permutation
 export CFLAGS="$PERMUTATION"
 
-./configure
+./configure || exit $?
 
-exit 0
+make -j8
+
+
