@@ -1,0 +1,13 @@
+#!/bin/bash
+#m10k_build_plugin test file
+
+# Goes into project directorry
+cd *
+read PERMUTATION
+
+# Set FLAGS to the options from permutation
+export CFLAGS="$PERMUTATION"
+
+./configure || return 1
+
+make

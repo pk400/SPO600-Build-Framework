@@ -1,0 +1,1508 @@
+++ initial_cwd_=/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6/tests
+++ fail=0
++++ testdir_prefix_
++++ printf gt
+++ pfx_=gt
++++ mktempd_ /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6/tests gt-help-version.XXXX
++++ case $# in
++++ destdir_=/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6/tests
++++ template_=gt-help-version.XXXX
++++ MAX_TRIES_=4
++++ case $destdir_ in
++++ case $template_ in
+++++ unset TMPDIR
++++ d=/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6/tests/gt-help-version.iOdG
++++ case $d in
++++ test -d /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6/tests/gt-help-version.iOdG
+++++ ls -dgo /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6/tests/gt-help-version.iOdG
+++++ tr S -
++++ perms='drwx------. 2 4096 Nov 27 02:11 /home/chris/git/-PO600-Build-Framework/tmp/gzip-1.6/tests/gt-help-version.iOdG'
++++ case $perms in
++++ test 0 = 0
++++ echo /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6/tests/gt-help-version.iOdG
++++ return
+++ test_dir_=/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6/tests/gt-help-version.iOdG
+++ cd /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6/tests/gt-help-version.iOdG
+++ gl_init_sh_nl_='
+'
+++ IFS=' 	
+'
+++ for sig_ in 1 2 3 13 15
++++ expr 1 + 128
+++ eval 'trap '\''Exit 129'\'' 1'
++++ trap 'Exit 129' 1
+++ for sig_ in 1 2 3 13 15
++++ expr 2 + 128
+++ eval 'trap '\''Exit 130'\'' 2'
++++ trap 'Exit 130' 2
+++ for sig_ in 1 2 3 13 15
++++ expr 3 + 128
+++ eval 'trap '\''Exit 131'\'' 3'
++++ trap 'Exit 131' 3
+++ for sig_ in 1 2 3 13 15
++++ expr 13 + 128
+++ eval 'trap '\''Exit 141'\'' 13'
++++ trap 'Exit 141' 13
+++ for sig_ in 1 2 3 13 15
++++ expr 15 + 128
+++ eval 'trap '\''Exit 143'\'' 15'
++++ trap 'Exit 143' 15
+++ trap remove_tmp_ 0
++ path_prepend_ ..
++ test 1 '!=' 0
++ path_dir_=..
++ case $path_dir_ in
++ abs_path_dir_=/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6/tests/..
++ case $abs_path_dir_ in
++ PATH=/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6/tests/..:/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/chris/.local/bin:/home/chris/bin
++ create_exe_shims_ /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6/tests/..
++ case $EXEEXT in
++ return 0
++ shift
++ test 0 '!=' 0
++ export PATH
++ expected_failure_status_chroot=125
++ expected_failure_status_env=125
++ expected_failure_status_nice=125
++ expected_failure_status_nohup=125
++ expected_failure_status_stdbuf=125
++ expected_failure_status_su=125
++ expected_failure_status_timeout=125
++ expected_failure_status_printenv=2
++ expected_failure_status_tty=3
++ expected_failure_status_sort=2
++ expected_failure_status_expr=3
++ expected_failure_status_lbracket=2
++ expected_failure_status_dir=2
++ expected_failure_status_ls=2
++ expected_failure_status_vdir=2
++ expected_failure_status_cmp=2
++ expected_failure_status_zcmp=2
++ expected_failure_status_sdiff=2
++ expected_failure_status_diff3=2
++ expected_failure_status_diff=2
++ expected_failure_status_zdiff=2
++ expected_failure_status_zgrep=2
++ expected_failure_status_zegrep=2
++ expected_failure_status_zfgrep=2
++ expected_failure_status_grep=2
++ expected_failure_status_egrep=2
++ expected_failure_status_fgrep=2
++ test 'gzip gunzip gzexe zcat zcmp zdiff zegrep zfgrep zforce zgrep zless zmore znew'
++ test 1.6
++ for i in '$built_programs'
+++ env gzip --version
+++ sed -n '1s/.* //p;q'
++ v=1.6
++ break
++ test x1.6 = x1.6
++ for lang in C fr da
++ for i in '$built_programs'
++ test gzip = test
++ test gzip = false
++ type gzip_setuphelp
++ args=
++ test gzip = install
++ eval 'env $i  --help    > h-$i   '
+++ env gzip --help
++ eval 'env $i  --version >/dev/null'
+++ env gzip --version
++ grep bug-gzip@gnu.org h-gzip
++ rm -f h-gzip
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i  --help    >/dev/full 2>/dev/null'
+++ env gzip --help
++ eval 'env $i  --version >/dev/full 2>/dev/null'
+++ env gzip --version
++ status=1
++ test gzip = '['
++ prog=gzip
++ eval 'expected=$expected_failure_status_gzip'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test gunzip = test
++ test gunzip = false
++ type gunzip_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test gunzip = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env gunzip --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env gunzip --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-gunzip
++ rm -f h-gunzip
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env gunzip --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env gunzip --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test gunzip = '['
++ prog=gunzip
++ eval 'expected=$expected_failure_status_gunzip'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test gzexe = test
++ test gzexe = false
++ type gzexe_setuphelp
++ gzexe_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test gzexe = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env gzexe --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env gzexe --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-gzexe
++ rm -f h-gzexe
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env gzexe --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env gzexe --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test gzexe = '['
++ prog=gzexe
++ eval 'expected=$expected_failure_status_gzexe'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test zcat = test
++ test zcat = false
++ type zcat_setuphelp
++ zcat_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zcat = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zcat --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zcat --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zcat
++ rm -f h-zcat
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zcat --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zcat --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test zcat = '['
++ prog=zcat
++ eval 'expected=$expected_failure_status_zcat'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test zcmp = test
++ test zcmp = false
++ type zcmp_setuphelp
++ zcmp_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zcmp = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zcmp --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zcmp --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zcmp
++ rm -f h-zcmp
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zcmp --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zcmp --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=2
++ test zcmp = '['
++ prog=zcmp
++ eval 'expected=$expected_failure_status_zcmp'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test zdiff = test
++ test zdiff = false
++ type zdiff_setuphelp
++ zdiff_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zdiff = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zdiff --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zdiff --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zdiff
++ rm -f h-zdiff
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zdiff --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zdiff --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=2
++ test zdiff = '['
++ prog=zdiff
++ eval 'expected=$expected_failure_status_zdiff'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test zegrep = test
++ test zegrep = false
++ type zegrep_setuphelp
++ zegrep_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zegrep = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zegrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zegrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zegrep
++ rm -f h-zegrep
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zegrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zegrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=2
++ test zegrep = '['
++ prog=zegrep
++ eval 'expected=$expected_failure_status_zegrep'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test zfgrep = test
++ test zfgrep = false
++ type zfgrep_setuphelp
++ zfgrep_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zfgrep = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zfgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zfgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zfgrep
++ rm -f h-zfgrep
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zfgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zfgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=2
++ test zfgrep = '['
++ prog=zfgrep
++ eval 'expected=$expected_failure_status_zfgrep'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test zforce = test
++ test zforce = false
++ type zforce_setuphelp
++ zforce_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zforce = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zforce --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zforce --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zforce
++ rm -f h-zforce
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zforce --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zforce --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test zforce = '['
++ prog=zforce
++ eval 'expected=$expected_failure_status_zforce'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test zgrep = test
++ test zgrep = false
++ type zgrep_setuphelp
++ zgrep_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zgrep = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zgrep
++ rm -f h-zgrep
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=2
++ test zgrep = '['
++ prog=zgrep
++ eval 'expected=$expected_failure_status_zgrep'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test zless = test
++ test zless = false
++ type zless_setuphelp
++ zless_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zless = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zless --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zless --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zless
++ rm -f h-zless
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zless --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zless --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test zless = '['
++ prog=zless
++ eval 'expected=$expected_failure_status_zless'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test zmore = test
++ test zmore = false
++ type zmore_setuphelp
++ zmore_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zmore = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zmore --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zmore --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zmore
++ rm -f h-zmore
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zmore --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zmore --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test zmore = '['
++ prog=zmore
++ eval 'expected=$expected_failure_status_zmore'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test znew = test
++ test znew = false
++ type znew_setuphelp
++ znew_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test znew = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env znew --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env znew --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-znew
++ rm -f h-znew
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env znew --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env znew --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test znew = '['
++ prog=znew
++ eval 'expected=$expected_failure_status_znew'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for lang in C fr da
++ for i in '$built_programs'
++ test gzip = test
++ test gzip = false
++ type gzip_setuphelp
++ args=
++ test gzip = install
++ eval 'env $i  --help    > h-$i   '
+++ env gzip --help
++ eval 'env $i  --version >/dev/null'
+++ env gzip --version
++ grep bug-gzip@gnu.org h-gzip
++ rm -f h-gzip
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i  --help    >/dev/full 2>/dev/null'
+++ env gzip --help
++ eval 'env $i  --version >/dev/full 2>/dev/null'
+++ env gzip --version
++ status=1
++ test gzip = '['
++ prog=gzip
++ eval 'expected=$expected_failure_status_gzip'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test gunzip = test
++ test gunzip = false
++ type gunzip_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test gunzip = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env gunzip --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env gunzip --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-gunzip
++ rm -f h-gunzip
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env gunzip --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env gunzip --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test gunzip = '['
++ prog=gunzip
++ eval 'expected=$expected_failure_status_gunzip'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test gzexe = test
++ test gzexe = false
++ type gzexe_setuphelp
++ gzexe_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test gzexe = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env gzexe --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env gzexe --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-gzexe
++ rm -f h-gzexe
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env gzexe --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env gzexe --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test gzexe = '['
++ prog=gzexe
++ eval 'expected=$expected_failure_status_gzexe'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test zcat = test
++ test zcat = false
++ type zcat_setuphelp
++ zcat_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zcat = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zcat --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zcat --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zcat
++ rm -f h-zcat
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zcat --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zcat --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test zcat = '['
++ prog=zcat
++ eval 'expected=$expected_failure_status_zcat'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test zcmp = test
++ test zcmp = false
++ type zcmp_setuphelp
++ zcmp_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zcmp = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zcmp --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zcmp --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zcmp
++ rm -f h-zcmp
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zcmp --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zcmp --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=2
++ test zcmp = '['
++ prog=zcmp
++ eval 'expected=$expected_failure_status_zcmp'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test zdiff = test
++ test zdiff = false
++ type zdiff_setuphelp
++ zdiff_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zdiff = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zdiff --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zdiff --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zdiff
++ rm -f h-zdiff
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zdiff --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zdiff --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=2
++ test zdiff = '['
++ prog=zdiff
++ eval 'expected=$expected_failure_status_zdiff'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test zegrep = test
++ test zegrep = false
++ type zegrep_setuphelp
++ zegrep_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zegrep = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zegrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zegrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zegrep
++ rm -f h-zegrep
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zegrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zegrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=2
++ test zegrep = '['
++ prog=zegrep
++ eval 'expected=$expected_failure_status_zegrep'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test zfgrep = test
++ test zfgrep = false
++ type zfgrep_setuphelp
++ zfgrep_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zfgrep = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zfgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zfgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zfgrep
++ rm -f h-zfgrep
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zfgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zfgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=2
++ test zfgrep = '['
++ prog=zfgrep
++ eval 'expected=$expected_failure_status_zfgrep'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test zforce = test
++ test zforce = false
++ type zforce_setuphelp
++ zforce_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zforce = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zforce --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zforce --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zforce
++ rm -f h-zforce
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zforce --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zforce --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test zforce = '['
++ prog=zforce
++ eval 'expected=$expected_failure_status_zforce'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test zgrep = test
++ test zgrep = false
++ type zgrep_setuphelp
++ zgrep_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zgrep = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zgrep
++ rm -f h-zgrep
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=2
++ test zgrep = '['
++ prog=zgrep
++ eval 'expected=$expected_failure_status_zgrep'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test zless = test
++ test zless = false
++ type zless_setuphelp
++ zless_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zless = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zless --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zless --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zless
++ rm -f h-zless
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zless --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zless --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test zless = '['
++ prog=zless
++ eval 'expected=$expected_failure_status_zless'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test zmore = test
++ test zmore = false
++ type zmore_setuphelp
++ zmore_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zmore = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zmore --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zmore --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zmore
++ rm -f h-zmore
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zmore --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zmore --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test zmore = '['
++ prog=zmore
++ eval 'expected=$expected_failure_status_zmore'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test znew = test
++ test znew = false
++ type znew_setuphelp
++ znew_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test znew = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env znew --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env znew --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-znew
++ rm -f h-znew
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env znew --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env znew --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test znew = '['
++ prog=znew
++ eval 'expected=$expected_failure_status_znew'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for lang in C fr da
++ for i in '$built_programs'
++ test gzip = test
++ test gzip = false
++ type gzip_setuphelp
++ args=
++ test gzip = install
++ eval 'env $i  --help    > h-$i   '
+++ env gzip --help
++ eval 'env $i  --version >/dev/null'
+++ env gzip --version
++ grep bug-gzip@gnu.org h-gzip
++ rm -f h-gzip
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i  --help    >/dev/full 2>/dev/null'
+++ env gzip --help
++ eval 'env $i  --version >/dev/full 2>/dev/null'
+++ env gzip --version
++ status=1
++ test gzip = '['
++ prog=gzip
++ eval 'expected=$expected_failure_status_gzip'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test gunzip = test
++ test gunzip = false
++ type gunzip_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test gunzip = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env gunzip --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env gunzip --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-gunzip
++ rm -f h-gunzip
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env gunzip --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env gunzip --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test gunzip = '['
++ prog=gunzip
++ eval 'expected=$expected_failure_status_gunzip'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test gzexe = test
++ test gzexe = false
++ type gzexe_setuphelp
++ gzexe_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test gzexe = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env gzexe --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env gzexe --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-gzexe
++ rm -f h-gzexe
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env gzexe --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env gzexe --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test gzexe = '['
++ prog=gzexe
++ eval 'expected=$expected_failure_status_gzexe'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test zcat = test
++ test zcat = false
++ type zcat_setuphelp
++ zcat_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zcat = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zcat --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zcat --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zcat
++ rm -f h-zcat
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zcat --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zcat --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test zcat = '['
++ prog=zcat
++ eval 'expected=$expected_failure_status_zcat'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test zcmp = test
++ test zcmp = false
++ type zcmp_setuphelp
++ zcmp_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zcmp = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zcmp --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zcmp --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zcmp
++ rm -f h-zcmp
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zcmp --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zcmp --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=2
++ test zcmp = '['
++ prog=zcmp
++ eval 'expected=$expected_failure_status_zcmp'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test zdiff = test
++ test zdiff = false
++ type zdiff_setuphelp
++ zdiff_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zdiff = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zdiff --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zdiff --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zdiff
++ rm -f h-zdiff
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zdiff --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zdiff --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=2
++ test zdiff = '['
++ prog=zdiff
++ eval 'expected=$expected_failure_status_zdiff'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test zegrep = test
++ test zegrep = false
++ type zegrep_setuphelp
++ zegrep_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zegrep = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zegrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zegrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zegrep
++ rm -f h-zegrep
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zegrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zegrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=2
++ test zegrep = '['
++ prog=zegrep
++ eval 'expected=$expected_failure_status_zegrep'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test zfgrep = test
++ test zfgrep = false
++ type zfgrep_setuphelp
++ zfgrep_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zfgrep = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zfgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zfgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zfgrep
++ rm -f h-zfgrep
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zfgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zfgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=2
++ test zfgrep = '['
++ prog=zfgrep
++ eval 'expected=$expected_failure_status_zfgrep'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test zforce = test
++ test zforce = false
++ type zforce_setuphelp
++ zforce_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zforce = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zforce --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zforce --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zforce
++ rm -f h-zforce
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zforce --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zforce --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test zforce = '['
++ prog=zforce
++ eval 'expected=$expected_failure_status_zforce'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test zgrep = test
++ test zgrep = false
++ type zgrep_setuphelp
++ zgrep_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zgrep = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zgrep
++ rm -f h-zgrep
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=2
++ test zgrep = '['
++ prog=zgrep
++ eval 'expected=$expected_failure_status_zgrep'
+++ expected=2
++ test x2 = x
++ test 2 = 2
++ :
++ for i in '$built_programs'
++ test zless = test
++ test zless = false
++ type zless_setuphelp
++ zless_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zless = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zless --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zless --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zless
++ rm -f h-zless
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zless --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zless --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test zless = '['
++ prog=zless
++ eval 'expected=$expected_failure_status_zless'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test zmore = test
++ test zmore = false
++ type zmore_setuphelp
++ zmore_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test zmore = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env zmore --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env zmore --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-zmore
++ rm -f h-zmore
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env zmore --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env zmore --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test zmore = '['
++ prog=zmore
++ eval 'expected=$expected_failure_status_zmore'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ for i in '$built_programs'
++ test znew = test
++ test znew = false
++ type znew_setuphelp
++ znew_setuphelp
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ test znew = install
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    > h-$i   '
+++ env znew --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/null'
+++ env znew --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ grep bug-gzip@gnu.org h-znew
++ rm -f h-znew
++ test -w /dev/full
++ test -c /dev/full
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --help    >/dev/full 2>/dev/null'
+++ env znew --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --help
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' --version >/dev/full 2>/dev/null'
+++ env znew --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 --version
++ status=1
++ test znew = '['
++ prog=znew
++ eval 'expected=$expected_failure_status_znew'
+++ expected=
++ test x = x
++ expected=1
++ test 1 = 1
++ :
++ bigZ_in=bigZ-in.Z
++ zin=zin.gz
++ zin2=zin2.gz
++ tmp=tmp-26914
++ tmp_in=in-26914
++ tmp_in2=in2-26914
++ tmp_dir=dir-26914
++ tmp_out=out-26914
++ mkdir tmp-26914
++ cd tmp-26914
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-26914 in2-26914 dir-26914 out-26914 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-26914 in2-26914
++ mkdir dir-26914
++ test gzip = '['
++ prog=gzip
++ type gzip_setup
++ args=
++ eval 'env $i  < $tmp_in > $tmp_out'
+++ env gzip
++ :
++ rm -rf in-26914 in2-26914 out-26914 dir-26914
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-26914 in2-26914 dir-26914 out-26914 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-26914 in2-26914
++ mkdir dir-26914
++ test gunzip = '['
++ prog=gunzip
++ type gunzip_setup
++ gunzip_setup
++ zcat_setup
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' zin.gz'
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' zin.gz < $tmp_in > $tmp_out'
+++ env gunzip --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 zin.gz
++ :
++ rm -rf in-26914 in2-26914 out-26914 dir-26914
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-26914 in2-26914 dir-26914 out-26914 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-26914 in2-26914
++ mkdir dir-26914
++ test gzexe = '['
++ prog=gzexe
++ type gzexe_setup
++ gzexe_setup
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' in-26914'
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' in-26914 < $tmp_in > $tmp_out'
+++ env gzexe --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 in-26914
+in-26914:	-15.4%
++ :
++ rm -rf in-26914 in2-26914 out-26914 dir-26914
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-26914 in2-26914 dir-26914 out-26914 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-26914 in2-26914
++ mkdir dir-26914
++ test zcat = '['
++ prog=zcat
++ type zcat_setup
++ zcat_setup
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' zin.gz'
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' zin.gz < $tmp_in > $tmp_out'
+++ env zcat --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 zin.gz
++ :
++ rm -rf in-26914 in2-26914 out-26914 dir-26914
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-26914 in2-26914 dir-26914 out-26914 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-26914 in2-26914
++ mkdir dir-26914
++ test zcmp = '['
++ prog=zcmp
++ type zcmp_setup
++ zcmp_setup
++ zdiff_setup
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' zin.gz zin2.gz'
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' zin.gz zin2.gz < $tmp_in > $tmp_out'
+++ env zcmp --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 zin.gz zin2.gz
++ :
++ rm -rf in-26914 in2-26914 out-26914 dir-26914
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-26914 in2-26914 dir-26914 out-26914 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-26914 in2-26914
++ mkdir dir-26914
++ test zdiff = '['
++ prog=zdiff
++ type zdiff_setup
++ zdiff_setup
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' zin.gz zin2.gz'
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' zin.gz zin2.gz < $tmp_in > $tmp_out'
+++ env zdiff --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 zin.gz zin2.gz
++ :
++ rm -rf in-26914 in2-26914 out-26914 dir-26914
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-26914 in2-26914 dir-26914 out-26914 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-26914 in2-26914
++ mkdir dir-26914
++ test zegrep = '['
++ prog=zegrep
++ type zegrep_setup
++ zegrep_setup
++ zgrep_setup
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' z zin.gz'
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' z zin.gz < $tmp_in > $tmp_out'
+++ env zegrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 z zin.gz
++ :
++ rm -rf in-26914 in2-26914 out-26914 dir-26914
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-26914 in2-26914 dir-26914 out-26914 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-26914 in2-26914
++ mkdir dir-26914
++ test zfgrep = '['
++ prog=zfgrep
++ type zfgrep_setup
++ zfgrep_setup
++ zgrep_setup
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' z zin.gz'
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' z zin.gz < $tmp_in > $tmp_out'
+++ env zfgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 z zin.gz
++ :
++ rm -rf in-26914 in2-26914 out-26914 dir-26914
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-26914 in2-26914 dir-26914 out-26914 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-26914 in2-26914
++ mkdir dir-26914
++ test zforce = '['
++ prog=zforce
++ type zforce_setup
++ zforce_setup
++ zcat_setup
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' zin.gz'
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' zin.gz < $tmp_in > $tmp_out'
+++ env zforce --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 zin.gz
++ :
++ rm -rf in-26914 in2-26914 out-26914 dir-26914
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-26914 in2-26914 dir-26914 out-26914 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-26914 in2-26914
++ mkdir dir-26914
++ test zgrep = '['
++ prog=zgrep
++ type zgrep_setup
++ zgrep_setup
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' z zin.gz'
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' z zin.gz < $tmp_in > $tmp_out'
+++ env zgrep --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 z zin.gz
++ :
++ rm -rf in-26914 in2-26914 out-26914 dir-26914
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-26914 in2-26914 dir-26914 out-26914 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-26914 in2-26914
++ mkdir dir-26914
++ test zless = '['
++ prog=zless
++ type zless_setup
++ zless_setup
++ zcat_setup
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' zin.gz'
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' zin.gz < $tmp_in > $tmp_out'
+++ env zless --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 zin.gz
++ :
++ rm -rf in-26914 in2-26914 out-26914 dir-26914
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-26914 in2-26914 dir-26914 out-26914 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-26914 in2-26914
++ mkdir dir-26914
++ test zmore = '['
++ prog=zmore
++ type zmore_setup
++ zmore_setup
++ zcat_setup
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' zin.gz'
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' zin.gz < $tmp_in > $tmp_out'
+++ env zmore --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 zin.gz
++ :
++ rm -rf in-26914 in2-26914 out-26914 dir-26914
++ for i in '$built_programs'
++ case $i in
++ rm -rf in-26914 in2-26914 dir-26914 out-26914 bigZ-in.Z zin.gz zin2.gz
++ echo z
++ gzip
++ cp zin.gz zin2.gz
++ cp zin.gz bigZ-in.Z
++ echo 2147483647 0
++ cp in-26914 in2-26914
++ mkdir dir-26914
++ test znew = '['
++ prog=znew
++ type znew_setup
++ znew_setup
++ gunzip_setuphelp
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'''
++ args='--__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' bigZ-in.Z'
++ eval 'env $i --__bindir '\''/home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6'\'' bigZ-in.Z < $tmp_in > $tmp_out'
+++ env znew --__bindir /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6 bigZ-in.Z
++ :
++ rm -rf in-26914 in2-26914 out-26914 dir-26914
++ Exit 0
++ set +e
++ exit 0
++ exit 0
++ remove_tmp_
++ __st=0
++ cleanup_
++ :
++ cd /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6/tests
++ chmod -R u+rwx /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6/tests/gt-help-version.iOdG
++ rm -rf /home/chris/git/SPO600-Build-Framework/tmp/gzip-1.6/tests/gt-help-version.iOdG
++ exit 0

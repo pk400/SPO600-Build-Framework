@@ -26,11 +26,12 @@ else:
 		sys.stdout.write('|')
 
 		for option in line:
-			if option[:5] == '-fno-':
-				print '-f' +  option[5:],
-			else:	
-				print '-fno-' + option[2:],
-		print
+			print option,
+#			if option[:5] == '-fno-':
+#				print '-f' +  option[5:],
+#			else:	
+#				print '-fno-' + option[2:],
+#		print
 	print
  
 	f.close()
