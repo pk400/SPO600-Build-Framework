@@ -163,7 +163,7 @@ then
 	exit 20
 fi
 
-echo "$((I+1))|$(tail -1 ${TEMPOUT})" >> $TEMPRESULT
+echo "\$$((I+1))|$(tail -1 ${TEMPOUT})" >> $TEMPRESULT
 
 done # loop through benchmark runs
 
