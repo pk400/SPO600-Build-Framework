@@ -2,7 +2,8 @@
 
 cd gzip-[0-9]*
 START=$(date +%s.%N)
-time ./gunzip -v <../gutenberg-10M.txt.gz|gzip -v >/dev/null
+./gunzip -v <../gutenberg-10M.txt.gz|gzip -v >/dev/null
 END=$(date +%s.%N)
-SCORE=$(echo "($END - $START)*100"|bc|sed "s/*\.[0-9]*//") 
+SCORE=$(echo "($END - $START)*100"|bc|sed "s/\.[0-9]*//") 
 echo "$SCORE"
+
