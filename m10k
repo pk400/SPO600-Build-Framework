@@ -5,15 +5,25 @@
 # SPO600 Class @ Seneca, Fall 2015
 #
 
-# --- Cleanup function
+# --- Script Settings
+
+# Debug messages on=1/off=0
+DEBUG_MODE=1
+
+# Set number of benchmark runs per build
+BENCHMARKS=4
+
+# --- Debug and Cleanup functions
 
 function debug() {
-	echo "==== $(date) == $1" >&2
+	if [ "$DEBUG_MODE" = "1" ] 
+	then
+		echo "==== $(date +%Y-%m-%d-%H:%M:%S) === $1" >&2
+	fi
 }
 
 function cleanup() {
-	rm "$TEMPDIR" "$TEMPPARSE" "$TEMPPERMUTE" "$TEMPRESULT" 2>/dev/null
-	exit 0
+	rm -rf "$TEMPDIR" "$TEMPPARSE" "$TEMPPERMUTE" "$TEMPRESULT" 2>/dev/null
 }
 
 # Execute cleanup on specific signals
@@ -27,6 +37,8 @@ if [ ! -f "$TARBALL" ]
 then
 	echo "$0: tarball '$TARBALL' not found; supply valid tarball name as arg1." >&2
 	exit 1
+else
+	echo "$0: using '$TARBALL' for input" >&2
 fi
 
 # Create a temporary directory to explode the tarball
@@ -60,10 +72,10 @@ export M10KDIR
 # Create tempfile names
 TEMPPARSE=$(mktemp)
 TEMPPERMUTE=$(mktemp)
-TEMPRESULT=$(mktemp)
+TEMPOUT=$(mktemp)
+TEMPRESULT=${TEMPDIR}/analysis.txt
 
-# Set number of benchmark runs per build
-BENCHMARKS=4
+echo "$(basename ${TARBALL})" >$TEMPRESULT
 
 # --- Parse options file
 
@@ -89,32 +101,47 @@ fi
 
 PERM=0
 
-cat "$TEMPPERMUTE"|
-while read PERMUTATION
+cat "${TEMPPERMUTE}"|while read PERMUTATION
 do
 
-debug "Processing permutation $((++PERM))"
+echo "#$((++PERM))|${PERMUTATION}" >>$TEMPRESULT
+
+debug "Processing permutation ${PERM}: $PERMUTATION"
+
 # --- Build with selected options
 
-echo "=== Building"
-
 debug "Building"
-${M10KDIR}/m10k_build <<<$PERMUTATION
-if [ $? != 0 ]
+/usr/bin/time --format="\n%e,%U,%S" ${M10KDIR}/m10k_build <<<$PERMUTATION 2>$TEMPOUT
+BUILD_EXIT=$?
+BUILD_RESULT=$(tail -1 ${TEMPOUT})
+
+if [ "${BUILD_EXIT}" != 0 ]
 then
 	echo "$0: m10k_build failed." >&2
-	exit 6
 fi
+
+echo "TEMPOUT: $(<$TEMPOUT)"
+echo "BUILD_RESULT: '$BUILD_RESULT'"
+BUILD_ELAPSED=$(cut -d, -f1 <<<$BUILD_RESULT)
+BUILD_USER=$(   cut -d, -f2 <<<$BUILD_RESULT)
+BUILD_SYSTEM=$( cut -d, -f3 <<<$BUILD_RESULT)
+BUILD_CPU=$(echo $BUILD_USER + $BUILD_SYSTEM|bc)
+BINARY_SIZE=0   # Cannot determine without plugin support - skip for now
+
+echo "${BUILD_EXIT}|${BUILD_ELAPSED}|${BUILD_CPU}|${BINARY_SIZE}" >> $TEMPRESULT
 
 # --- Test for successful build
 
 debug "Testing build"
 
 ${M10KDIR}/m10k_test
-if [ $? != 0 ]
+TEST_RESULT=$?
+
+echo "${TEST_RESULT}" >> $TEMPRESULT
+
+if [ "${TEST_RESULT}" != 0 ]
 then
 	echo "$0: m10k_test failed." >&2
-	exit 6
 else
 
 # --- Loop through benchmark runs
@@ -128,11 +155,15 @@ debug "Benchmark run $I"
 
 # --- Perform Benchmark
 
-echo "$TEMPRESULTS"|${M10KDIR}/m10k_benchmark
-if [ $? != 0 ]
+${M10KDIR}/m10k_benchmark >$TEMPOUT </dev/null
+BENCH_EXIT=$?
+if [ "${BENCH_EXIT}" != 0 ]
 then
 	echo "$0: m10k_benchmark failed." >&2
+	exit 20
 fi
+
+echo "$((I+1))|$(tail -1 ${TEMPOUT})" >> $TEMPRESULT
 
 done # loop through benchmark runs
 
@@ -146,7 +177,7 @@ ${M10KDIR}/m10k_cogitate
 if [ $? != 0 ]
 then
 	echo "$0: m10k_cogitate failed." >&2
-	exit 7
+#	exit 7
 fi
 
 # --- Tidy and exit

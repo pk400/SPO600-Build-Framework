@@ -1,6 +1,9 @@
 #!/bin/bash
 #m10k_build_plugin test file
 
+# Unpack source
+tar xf gzip*t*z
+
 # Goes into project directorry
 cd gzip-[0-9]*
 
