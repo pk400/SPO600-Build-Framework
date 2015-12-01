@@ -1,13 +1,20 @@
 #!/bin/bash
 #m10k_build_plugin test file
 
+# Unpack source
+tar xf gzip*t*z
+
 # Goes into project directorry
-cd *
+cd gzip-[0-9]*
+
+# Read configuration to be tested
 read PERMUTATION
 
 # Set FLAGS to the options from permutation
 export CFLAGS="$PERMUTATION"
 
-./configure
+./configure || exit $?
 
-exit 0
+make -j8
+
+

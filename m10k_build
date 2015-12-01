@@ -1,10 +1,10 @@
 #!/bin/bash
 #By Yehoshua Ghitis
-echo "m10k_build"
-ls -l m10k_build_plugin 2> /dev/null
-if [ "$?" == 2 ]
+
+if [ ! -x ./m10k_build_plugin ]
 then
-    echo "$0: File not found"
+    echo "$0: The plugin file 'm10k_build_plugin' is not found" >&2
     exit 2
 fi
-./m10k_build_plugin <<< echo $*
+./m10k_build_plugin
+

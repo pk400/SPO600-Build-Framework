@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd gzip-[0-9]*
+make check
+
