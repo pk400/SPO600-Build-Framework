@@ -1,7 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import sqlite3
 import os.path
 import sys
+import pygal
 
 class Permutation:
 	def __init__(self):
@@ -120,18 +121,14 @@ for per in permutations:
 
 connection.commit()
 
-# show column labels
-print('Permutation columns:\n' + comma.join([column[0] for column in permutationColumns]))
-print('Benchmark columns:\n' + comma.join([column[0] for column in benchmarkColumns]))
-print()
+# create chart
+chart = pygal.Box()
+chart.title = 'Benchmark Scores'
 
-# dump the database
 for row in connection.execute('select * from ' + tablePermutations):
-	print(row)
-	for benchRow in connection.execute('select * from ' + tableBenchmarks + ' where ' + benchmarkColumns[1][0] + ' = ' + str(row[0])):
-		print('\t', end = '')
-		print(benchRow)
-
-	print()
+	scores = [benchRow[3] for benchRow in connection.execute('select * from ' + tableBenchmarks + ' where ' + benchmarkColumns[1][0] + ' = ' + str(row[0]))]
+	avg = sum(scores) / float(len(scores))
+	chart.add(str(row[0]), avg)
 
 connection.close()
+chart.render_to_file('chart.svg')   
