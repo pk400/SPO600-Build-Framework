@@ -1,25 +1,41 @@
 #!/bin/bash
 # Coded by Jayme Laso-Barros
-# This script will check if m10k_benchmark_plugin exists.
-# If it does, then the plugin is run.
+# This script will calculate a memory score for the benchmark plugin.
+# It will output the performance/memory scores to analys.txt.
 
 PLUGIN="m10k_benchmark_plugin"
 
 echo "Running m10k_benchmark script..."
 
-# Look for the plugin in the project root directory.
+# Check if the plugin exists in the project root directory.
 echo "Checking if the benchmark plugin exists"
-ls -l $PLUGIN 2> /dev/null
 
 # Display a message if the plugin doesn't exist.
-if [ "$?" == 2 ]
+if [ ! -x "$PLUGIN" ]
 then
 	echo "$PLUGIN not found"
 	exit 2
 fi
 
-# Run the plugin if it exists.
-read BENCHMARK
-./$PLUGIN <<< echo "$0: $BENCHMARK"
+TEMP1=$(mktemp)
+TEMP2=$(mktemp)
 
-exit 0
+# Run the plugin with /usr/bin/time if it exists.
+# /usr/bin/time format string options:
+# %M - Maximum resident set size of the process, in Kb
+# %t - Average resident set size of the process, in Kb
+# %K - Average total memory use of the process, in Kb
+/usr/bin/time -f "%M" ./$PLUGIN >$TEMP1 2>$TEMP2
+
+# Last line of stdout from plugin is performance score
+SCORE_PERF=$(tail -1 "${TEMP1}")
+
+# Last line of stderr from /usr/bin/time is memory score
+SCORE_MEM=$(tail -1 "${TEMP2}")
+
+# Clean up
+rm ${TEMP1} ${TEMP2}
+
+# Send to parent as stdout
+echo "${SCORE_PERF}|${SCORE_MEM}"
+
