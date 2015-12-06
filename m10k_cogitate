@@ -4,6 +4,7 @@ import os.path
 import sys
 from datetime import datetime
 import pygal
+from itertools import groupby
 
 class Permutation:
 	def __init__(self):
@@ -73,13 +74,12 @@ while line != '' and line[0] == '#':
 
 	permutations.append(permutation)
 
-# check if data file already exist, we don't need to create the tables if it does
-resultPath = '~/.m10k/results/'
+resultPath = os.path.expanduser('~/.m10k/results/')
 if not os.path.exists(resultPath):
 	os.makedirs(resultPath)
 
+# check if data file already exist, we don't need to create the tables if it does
 dbName = '{0}{1}.db'.format(resultPath, packageName)
-print dbName
 dbExists = os.path.exists(dbName)
 connection = sqlite3.connect(dbName)
 
@@ -128,14 +128,21 @@ for per in permutations:
 
 connection.commit()
 
-# create chart
-chart = pygal.Box()
-chart.title = 'Benchmark Scores'
-
-for row in connection.execute('select * from ' + tablePermutations):
-	scores = [benchRow[3] for benchRow in connection.execute('select * from ' + tableBenchmarks + ' where ' + benchmarkColumns[1][0] + ' = ' + str(row[0]))]
-	avg = sum(scores) / float(len(scores))
-	chart.add(str(row[0]), avg)
-
+# get all benchmark runs for this file, not just session
+rows = [(row[0], row[1], row[2]) for row in connection.execute('select permutationUniqueId, speedScore, memoryScore from ' + tableBenchmarks)]
 connection.close()
+
+# organize data
+avg = lambda idx, items: sum(item[idx] for item in items) / float(len(items))
+results = []
+for key, grouper in groupby(rows, lambda item: item[0]):
+	items = list(grouper) # have to convert to list because the grouper iterator works only once
+	results.append((key, avg(1, items), avg(2, items)))
+
+# build the chart
+chart = pygal.Bar()
+chart.title = 'Benchmark Scores'
+chart.x_labels = [result[0] for result in results]
+chart.add('Speed Score', [result[1] for result in results])
+chart.add('Memory Score', [result[2] for result in results], secondary = True)
 chart.render_to_file('{0}{1}.svg'.format(resultPath, packageName))
