@@ -1,7 +1,10 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 import sqlite3
 import os.path
 import sys
+from datetime import datetime
+import pygal
+from itertools import groupby
 
 class Permutation:
 	def __init__(self):
@@ -34,7 +37,7 @@ def insertInto(tableName, columns):
 resultFile = open('analysis.txt')
 
 # package name
-packageName = resultFile.readline()
+packageName = resultFile.readline().strip()
 
 permutations = []
 line = resultFile.readline()
@@ -44,17 +47,17 @@ while line != '' and line[0] == '#':
 	# new permutation
 	permutation = Permutation()
 	permutation.id = tokens[0][1:]
-	permutation.flags = tokens[1].replace('\n', '')
+	permutation.flags = tokens[1].strip()
 
 	# build stats
 	tokens = resultFile.readline().split('|')
 	permutation.buildExit = tokens[0]
 	permutation.buildWallTime = tokens[1]
 	permutation.buildUserSystemTime = tokens[2]
-	permutation.buildSize = tokens[3]
+	permutation.buildSize = tokens[3].strip()
 
 	# test stats
-	permutation.testExit = resultFile.readline()
+	permutation.testExit = resultFile.readline().strip()
 
 	#benchmark runs
 	line = resultFile.readline()
@@ -64,15 +67,19 @@ while line != '' and line[0] == '#':
 		benchmark = Benchmark()
 		benchmark.id = tokens[0][1:]
 		benchmark.speedScore = tokens[1]
-		benchmark.memoryScore = tokens[2]
+		benchmark.memoryScore = tokens[2].strip()
 
 		permutation.benchmarks.append(benchmark)
 		line = resultFile.readline()
 
 	permutations.append(permutation)
 
+resultPath = os.path.expanduser('~/.m10k/results/')
+if not os.path.exists(resultPath):
+	os.makedirs(resultPath)
+
 # check if data file already exist, we don't need to create the tables if it does
-dbName = 'results.db'
+dbName = '{0}{1}.db'.format(resultPath, packageName)
 dbExists = os.path.exists(dbName)
 connection = sqlite3.connect(dbName)
 
@@ -91,7 +98,8 @@ permutationColumns = [
 	('buildWallTime', typeInteger),
 	('buildUserSystemTime', typeInteger),
 	('buildSize', typeInteger),
-	('testExit', typeInteger)]
+	('testExit', typeInteger),
+	('buildDate', typeText)] # ID taken from the data
 
 benchmarkColumns = [
 	('uniqueId', typeInteger + primaryKey), # auto generated ID
@@ -109,7 +117,7 @@ for per in permutations:
 	# insert a permutation record, we'll use its auto generated ID to associated the benchmark runs with it
 	cursor = connection.execute(
 		insertInto(tablePermutations, permutationColumns),
-		(per.id, per.flags, per.buildExit, per.buildWallTime, per.buildUserSystemTime, per.buildSize, per.testExit))
+		(per.id, per.flags, per.buildExit, per.buildWallTime, per.buildUserSystemTime, per.buildSize, per.testExit, datetime.now().isoformat()))
 
 	lastId = cursor.lastrowid
 
@@ -120,18 +128,21 @@ for per in permutations:
 
 connection.commit()
 
-# show column labels
-print('Permutation columns:\n' + comma.join([column[0] for column in permutationColumns]))
-print('Benchmark columns:\n' + comma.join([column[0] for column in benchmarkColumns]))
-print()
-
-# dump the database
-for row in connection.execute('select * from ' + tablePermutations):
-	print(row)
-	for benchRow in connection.execute('select * from ' + tableBenchmarks + ' where ' + benchmarkColumns[1][0] + ' = ' + str(row[0])):
-		print('\t', end = '')
-		print(benchRow)
-
-	print()
-
+# get all benchmark runs for this file, not just session
+rows = [(row[0], row[1], row[2]) for row in connection.execute('select permutationUniqueId, speedScore, memoryScore from ' + tableBenchmarks)]
 connection.close()
+
+# organize data
+avg = lambda idx, items: sum(item[idx] for item in items) / float(len(items))
+results = []
+for key, grouper in groupby(rows, lambda item: item[0]):
+	items = list(grouper) # have to convert to list because the grouper iterator works only once
+	results.append((key, avg(1, items), avg(2, items)))
+
+# build the chart
+chart = pygal.Bar()
+chart.title = 'Benchmark Scores'
+chart.x_labels = [result[0] for result in results]
+chart.add('Speed Score', [result[1] for result in results])
+chart.add('Memory Score', [result[2] for result in results], secondary = True)
+chart.render_to_file('{0}{1}.svg'.format(resultPath, packageName))
